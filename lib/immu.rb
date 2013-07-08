@@ -19,7 +19,7 @@ module Immu
 
   def values
     instance_variables.each_with_object({}) do |variable, object|
-      object[variable] = instance_variable_get variable
+      object[variable[1..-1]] = instance_variable_get variable
     end
   end
 end

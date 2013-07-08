@@ -3,10 +3,10 @@ module Immu
     include Helpers
 
     def val value
-      doggiezed_value = doggieze value
+      dogged_value = doggieze value
 
       define_method(value) do
-        instance_variable_get doggiezed_value
+        instance_variable_get dogged_value
       end
     end
   end

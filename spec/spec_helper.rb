@@ -7,6 +7,6 @@ class A
   include Immu
 
   val :id,     Integer
-  val :string, String
+  val :line,   String
   val :tags,   Array
 end

@@ -12,21 +12,27 @@ module Immu
 
         @@values = {}
         
-        def val value, type
+        def val value, type, options = {}
           dogged_value = doggieze value
 
           define_method(value) do
             instance_variable_get dogged_value
           end
 
-          @@values[value] = type
+          @@values[value] = { type: type, default: options[:default] }
         end
 
         def create args = {}
           args.each do |k, v|
-            raise ArgumentError.new('Invalid type') unless v.is_a?(@@values[k.to_sym])
+            raise ArgumentError.new('Invalid type') unless v.is_a?(@@values[k.to_sym][:type])
           end
-          self.new args
+
+          new_args = {}
+          @@values.each do |value, options|
+            new_args[value] = args[value] || args[value.to_s] || options[:default]
+          end
+
+          self.new new_args
         end
       end
     end

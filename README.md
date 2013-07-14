@@ -6,15 +6,11 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'immu'
+    gem 'immu', git: 'git://github.com/ch1c0t/immu.git'
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install immu
 
 ## Usage
 

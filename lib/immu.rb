@@ -1,5 +1,6 @@
 require "immu/version"
 require "immu/helpers"
+require "immu/repo"
 
 module Immu
   include Helpers
@@ -7,9 +8,9 @@ module Immu
   def self.included model
     model.class_eval do
       extend Helpers
+      include Repo
 
       class << self
-
         @@values = {}
         
         def val value, type, options = {}

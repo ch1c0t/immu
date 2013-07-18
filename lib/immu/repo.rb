@@ -15,7 +15,7 @@ module Immu
     end
 
     def where json
-      Collection.new_from_json json
+      Collection.create_from_json json
     end
   end
 end

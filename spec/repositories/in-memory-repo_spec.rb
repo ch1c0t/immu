@@ -20,7 +20,7 @@ describe 'in-memory repo' do
 
   describe '::where' do
     it "returns Collection" do
-      json = 'a json string'
+      json = '{"id": 77, "line": "string", "tags": ["tag0", "tag1", "tag2"]}'
       collection = A::Repo.where json
 
       assert collection.is_a?(Immu::Collection)
